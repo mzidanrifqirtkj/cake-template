@@ -1,0 +1,13 @@
+@extends('layouts.common.master')
+@section('title', 'Halaman Home')
+@section('content')
+@include('layouts.home.component.HeroStart')
+@include('layouts.home.component.FeatursSection')
+@include('layouts.home.component.FruitsShop')
+@include('layouts.home.component.Featurs')
+@include('layouts.home.component.VesitableShop')
+@include('layouts.home.component.BannerSection')
+@include('layouts.home.component.BestsalerProduct')
+@include('layouts.home.component.Fact')
+@include('layouts.home.component.Tastimonial')
+@endsection
