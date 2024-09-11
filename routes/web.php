@@ -52,4 +52,8 @@ Route::get('/shop', function () {
 Route::get('/testimonial', function () {
     return view('layouts.testimonial.pages.testimonial');
 });
+// signup
+Route::get('/signup', function () {
+    return view('layouts.signup.pages.signup');
+});
 ?>
