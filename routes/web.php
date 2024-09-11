@@ -1,3 +1,4 @@
+<?php
 use Illuminate\Support\Facades\Route;
 
 // Home
@@ -51,3 +52,4 @@ Route::get('/shop', function () {
 Route::get('/testimonial', function () {
     return view('layouts.testimonial.pages.testimonial');
 });
+?>
