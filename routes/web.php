@@ -37,10 +37,6 @@ Route::get('/cart', function () {
     return view('layouts.customer.cart.pages.cart');
 });
 
-Route::get('/checkout', function () {
-    return view('layouts.customer.checkout.pages.chackout'); // perbaiki 'chackout' jadi 'checkout'
-});
-
 // Contact
 Route::get('/contact', function () {
     return view('layouts.customer.contact.pages.contact');
@@ -80,7 +76,7 @@ Route::middleware('auth:admin')->group(function () {
 
 Route::post('/customer/logout', [CustomerAuthController::class, 'logoutCustomer'])->name('customer.logout');
 Route::middleware('auth:customer')->group(function () {
-    Route::get('/dashboard', [CustomerPagesController::class, 'index'])->name('customer.dashboard');
+    Route::get('/checkout', [CustomerPagesController::class, 'index'])->name('customer.checkout');
 });
 
 Route::post('/merchant/logout', [MerchantAuthController::class, 'logoutAdmin'])->name('merchant.logout');
