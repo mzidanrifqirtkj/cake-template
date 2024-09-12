@@ -19,6 +19,20 @@
 CREATE DATABASE IF NOT EXISTS `cake_marketplace_laravel10` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `cake_marketplace_laravel10`;
 
+-- Dumping structure for table cake_marketplace_laravel10.admin
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(36) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `raw_password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Dumping data for table cake_marketplace_laravel10.admin: ~0 rows (approximately)
+DELETE FROM `admin`;
+
 -- Dumping structure for table cake_marketplace_laravel10.customers
 CREATE TABLE IF NOT EXISTS `customers` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -159,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 -- Dumping data for table cake_marketplace_laravel10.sessions: ~1 rows (approximately)
 DELETE FROM `sessions`;
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-	('sFv5ZUDcPaB2tMOUXBqIAohPJn1v031BA9Bne9ye', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMnZsb0ZRckZlT05jVkZPWmVQMElXeDNrR005S1hQNGZMdmdEbXpZNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDc6Imh0dHA6Ly9jYWtlLXRlbXBsYXRlLWxhcmF2ZWwxMC50ZXN0L3Nob3AtZGV0YWlsIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1726037015);
+	('BpSkJzMA0I9YSODAxcigNinDyPtqNufu45Gdkxr7', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidkJMV0FTZkFJUWhabXZndnRJNkRJdjk2Z0lKRHBkeEd6UVlKbktmNyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDc6Imh0dHA6Ly9jYWtlLXRlbXBsYXRlLWxhcmF2ZWwxMC50ZXN0L2FkZC1jYXRhbG9nIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1726109159);
 
 -- Dumping structure for table cake_marketplace_laravel10.users
 CREATE TABLE IF NOT EXISTS `users` (
