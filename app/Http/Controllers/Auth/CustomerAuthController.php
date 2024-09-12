@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CustomerAuthController extends Controller
 {
@@ -16,7 +17,6 @@ class CustomerAuthController extends Controller
 
     public function login()
     {
-        // edit this
         return view('layouts.customer.auth.login.pages.signin');
     }
 
@@ -31,7 +31,7 @@ class CustomerAuthController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'identifier' => 'required|string', // Adjusted to match the input field
+            'identifier' => 'required|string',
             'password' => 'required|min:5|max:30',
         ]);
 
@@ -40,10 +40,11 @@ class CustomerAuthController extends Controller
             Auth::guard('customer')->attempt(['email' => $request->identifier, 'password' => $request->password]) ||
             Auth::guard('customer')->attempt(['username' => $request->identifier, 'password' => $request->password])
         ) {
-            // Authentication was successful...
-            return redirect()->route('/'); // Ensure 'landing page' route is defined
+            Session::flash('success', 'Login Successful! Welcome Customer!');
+            return redirect()->route('customer.dashboard');
         } else {
-            return redirect()->route('customer.login')->with('fail', 'Incorrect credentials');
+            Session::flash('error', 'Login Failed! Incorrect credentials.');
+            return redirect()->route('customer.login')->withInput($request->only('identifier'));
         }
     }
 }

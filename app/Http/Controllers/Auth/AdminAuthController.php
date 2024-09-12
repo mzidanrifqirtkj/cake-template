@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminAuthController extends Controller
 {
@@ -30,7 +31,7 @@ class AdminAuthController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'identifier' => 'required|string', // Adjusted to match the input field
+            'identifier' => 'required|string',
             'password' => 'required|min:5|max:30',
         ]);
 
@@ -39,10 +40,11 @@ class AdminAuthController extends Controller
             Auth::guard('admin')->attempt(['email' => $request->identifier, 'password' => $request->password]) ||
             Auth::guard('admin')->attempt(['username' => $request->identifier, 'password' => $request->password])
         ) {
-            // Authentication was successful...
-            return redirect()->route('admin.dashboard'); // Ensure 'panel' route is defined
+            Session::flash('success', 'Login Successful! Welcome Admin!');
+            return redirect()->route('admin.dashboard');
         } else {
-            return redirect()->route('admin.login')->with('fail', 'Incorrect credentials');
+            Session::flash('error', 'Login Failed! Incorrect credentials.');
+            return redirect()->route('admin.login')->withInput($request->only('identifier'));
         }
     }
 }

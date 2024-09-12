@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class MerchantAuthController extends Controller
 {
@@ -16,7 +17,6 @@ class MerchantAuthController extends Controller
 
     public function login()
     {
-        // edit this
         return view('layouts.merchant.auth.login.pages.login');
     }
 
@@ -31,7 +31,7 @@ class MerchantAuthController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'identifier' => 'required|string', // Adjusted to match the input field
+            'identifier' => 'required|string',
             'password' => 'required|min:5|max:30',
         ]);
 
@@ -40,10 +40,11 @@ class MerchantAuthController extends Controller
             Auth::guard('merchant')->attempt(['email' => $request->identifier, 'password' => $request->password]) ||
             Auth::guard('merchant')->attempt(['username' => $request->identifier, 'password' => $request->password])
         ) {
-            // Authentication was successful...
-            return redirect()->route('/'); // Ensure 'merchant admin page' route is defined
+            Session::flash('success', 'Login Successful! Welcome Merchant!');
+            return redirect()->route('merchant.dashboard');
         } else {
-            return redirect()->route('merchant.login')->with('fail', 'Incorrect credentials');
+            Session::flash('error', 'Login Failed! Incorrect credentials.');
+            return redirect()->route('merchant.login')->withInput($request->only('identifier'));
         }
     }
 }
