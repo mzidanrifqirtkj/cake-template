@@ -16,18 +16,19 @@
           <h1>Sign In</h1>
           <p>Persiapkan diri untuk masa depan yang penuh dengan bintang</p>
         </div>
-        <form action="{{route('customer.login.store')}}" method="post">
-          <div class="input-group border-primary">
-            <label for="email">Email</label>
-            <input type="email" class="placeholder-primary" id="email" name="email" placeholder="Your email">
-          </div>
-          <div class="input-group border-primary">
-            <label for="password">Password</label>
-            <input type="password" class="placeholder-primary" id="password" name="password" placeholder="Your password">
-          </div>
-          <button type="submit" class="btn-secondary btn-submit">Sign In</button>
-          <p class="text-center">Don't have an account? <a href="signup" class="link">Sign Up</a></p>
-        </form>
+        <form action="{{ route('customer.login.store') }}" method="POST">
+    @csrf  <!-- Include CSRF token -->
+    <div class="input-group border-primary">
+        <label for="email">Email</label>
+        <input type="email" class="placeholder-primary" id="email" name="email" placeholder="Your email" required>
+    </div>
+    <div class="input-group border-primary">
+        <label for="password">Password</label>
+        <input type="password" class="placeholder-primary" id="password" name="password" placeholder="Your password" required>
+    </div>
+    <button type="submit" class="btn-secondary btn-submit">Sign In</button>
+    <p class="text-center">Don't have an account? <a href="signup" class="link">Sign Up</a></p>
+</form>
       </section>
     </main>
   </body>

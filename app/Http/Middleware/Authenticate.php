@@ -41,6 +41,6 @@ class Authenticate extends Middleware
             return route('customer.login'); // Redirect to the customer login page
         }
     
-        return route('signin'); // Default redirect if no specific guard is matched
+        return route('customer.login'); // Default redirect if no specific guard is matched
     }
 }

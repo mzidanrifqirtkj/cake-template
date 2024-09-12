@@ -9,5 +9,22 @@ use Illuminate\Notifications\Notifiable;
 class Admin extends Model
 {
     use HasFactory, Notifiable;
-    protected $guard = 'admin';
+
+    protected $table = 'admin'; // Specify the table name if different
+
+    protected $fillable = [
+        'uuid',        // If you're using UUIDs
+        'name',
+        'phone',
+        'username',
+        'password',
+        'raw_password', // Add this if you need to store the unencrypted password
+    ];
+
+    protected $hidden = [
+        'password',
+        'raw_password', // Hide sensitive information
+    ];
+
+    // Optionally, you can define relationships and other model methods here
 }
