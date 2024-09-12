@@ -9,7 +9,7 @@ class AdminPagesController extends Controller
     // Display the admin dashboard
     public function index()
     {
-        return view('admin.dashboard'); // Adjust the view path as needed
+        return view('layouts.admin.panel.pages.admin_panel'); // Adjust the view path as needed
     }
     // Display admin form
 

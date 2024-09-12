@@ -16,7 +16,7 @@ Route::get('/', function () {
 // Authentication
 Route::get('/signin', function () {
     return view('layouts.customer.auth.login.pages.signin');
-});
+})->name('signin');
 
 // Merchant
 Route::get('/merchant', function () {
@@ -65,21 +65,24 @@ Route::get('/signup', function () {
 });
 
 Route::get('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
-Route::get('/admin/login', [AdminAuthController::class, 'store'])->name('admin.login.store');
+Route::post('/admin/login', [AdminAuthController::class, 'store'])->name('admin.login.store');
+
+Route::get('/customer/login', [CustomerAuthController::class, 'login'])->name('customer.login');
+Route::post('/customer/login', [CustomerAuthController::class, 'store'])->name('customer.login.store');
+
+Route::get('/merchant/login', [MerchantAuthController::class, 'login'])->name('merchant.login');
+Route::post('/merchant/login', [MerchantAuthController::class, 'store'])->name('merchant.login.store');
+
 Route::post('/admin/logout', [AdminAuthController::class, 'logoutAdmin'])->name('admin.logout');
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin-panel', [AdminPagesController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::get('/customer/login', [CustomerAuthController::class, 'login'])->name('customer.login');
-Route::get('/customer/login', [CustomerAuthController::class, 'store'])->name('customer.login.store');
 Route::post('/customer/logout', [CustomerAuthController::class, 'logoutCustomer'])->name('customer.logout');
 Route::middleware('auth:customer')->group(function () {
     Route::get('/dashboard', [CustomerPagesController::class, 'index'])->name('customer.dashboard');
 });
 
-Route::get('/merchant/login', [MerchantAuthController::class, 'login'])->name('merchant.login');
-Route::get('/merchant/login', [MerchantAuthController::class, 'store'])->name('merchant.login.store');
 Route::post('/merchant/logout', [MerchantAuthController::class, 'logoutAdmin'])->name('merchant.logout');
 Route::middleware('auth:merchant')->group(function () {
     Route::get('/merchant-panel', [MerchantPagesController::class, 'index'])->name('merchant.dashboard');

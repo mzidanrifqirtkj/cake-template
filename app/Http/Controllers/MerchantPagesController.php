@@ -9,7 +9,7 @@ class MerchantPagesController extends Controller
     // Display the admin dashboard
     public function index()
     {
-        return view('merchant.dashboard'); // Adjust the view path as needed
+        return view('layouts.merchant.panel.pages.admin'); // Adjust the view path as needed
     }
     // Display admin form
 

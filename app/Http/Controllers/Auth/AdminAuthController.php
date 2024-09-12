@@ -16,7 +16,7 @@ class AdminAuthController extends Controller
 
     public function login()
     {
-        return view('admin_auth.adminlogin');
+        return view('layouts.admin.auth.login.pages.test');
     }
 
     public function logoutAdmin(Request $request)
@@ -40,7 +40,7 @@ class AdminAuthController extends Controller
             Auth::guard('admin')->attempt(['username' => $request->identifier, 'password' => $request->password])
         ) {
             // Authentication was successful...
-            return redirect()->route('panel'); // Ensure 'panel' route is defined
+            return redirect()->route('admin.dashboard'); // Ensure 'panel' route is defined
         } else {
             return redirect()->route('admin.login')->with('fail', 'Incorrect credentials');
         }

@@ -17,7 +17,7 @@ class CustomerAuthController extends Controller
     public function login()
     {
         // edit this
-        return view('customer_auth.customerlogin');
+        return view('layouts.customer.auth.login.pages.signin');
     }
 
     public function logoutCustomer(Request $request)

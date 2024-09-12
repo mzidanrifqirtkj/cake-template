@@ -16,7 +16,7 @@
           <h1>Sign In</h1>
           <p>Persiapkan diri untuk masa depan yang penuh dengan bintang</p>
         </div>
-        <form action="" method="post">
+        <form action="{{route('customer.login.store')}}" method="post">
           <div class="input-group border-primary">
             <label for="email">Email</label>
             <input type="email" class="placeholder-primary" id="email" name="email" placeholder="Your email">
