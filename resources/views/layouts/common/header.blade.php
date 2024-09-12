@@ -1,9 +1,9 @@
-
-        <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" role="status"></div>
-        </div>
-        <!-- Spinner End -->
+<!-- Spinner Start -->
+<div id="spinner"
+    class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" role="status"></div>
+</div>
+<!-- Spinner End -->
 
 
 <!-- Navbar start -->
@@ -41,8 +41,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                            <a href="/cart"
-                                class="dropdown-item {{ request()->is('cart') ? 'active' : '' }}">Cart</a>
+                            <a href="/cart" class="dropdown-item {{ request()->is('cart') ? 'active' : '' }}">Cart</a>
                             <a href="/checkout"
                                 class="dropdown-item {{ request()->is('checkout') ? 'active' : '' }}">Checkout</a>
                             <a href="/testimonial"

@@ -40,6 +40,38 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+        'admin'=>[
+           'driver'=>'session',
+           'provider'=>'admins',
+        ],
+        'customer'=>[
+           'driver'=>'session',
+           'provider'=>'customers',
+        ],
+        'merchant'=>[
+           'driver'=>'session',
+           'provider'=>'merchants',
+        ],
+    ],
+
+    'admin' => [
+        'driver'=>'eloquent',
+        'model'=>App\Models\Admin\Admin::class,
+    ],
+
+    'customer' => [
+        'driver'=>'eloquent',
+        'model'=>App\Models\Customer\Customer::class,
+    ],
+
+    'merchant' => [
+        'driver'=>'eloquent',
+        'model'=>App\Models\Merchant\Merchant::class,
     ],
 
     /*
@@ -65,6 +97,20 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'admins'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Admin\Admin::class,
+         ],
+
+         'customers'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Customer\Customer::class,
+         ],
+
+         'merchants'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Merchant\Merchant::class,
+         ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -96,6 +142,18 @@ return [
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'admins'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Admin\Admin::class,
+        ],
+        'customers'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Customer\Customer::class,
+        ],
+        'merchants'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Merchant\Merchant::class,
         ],
     ],
 

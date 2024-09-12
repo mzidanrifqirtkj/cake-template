@@ -14,6 +14,8 @@ class RedirectIfAuthenticated
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  string ...$guards
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
@@ -21,7 +23,17 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // Redirect based on the guard
+                switch ($guard) {
+                    case 'admin':
+                        return redirect()->route('admin.home');
+                    case 'merchant':
+                        return redirect()->route('merchant.home');
+                    case 'customer':
+                        return redirect()->route('customer.home');
+                    default:
+                        return redirect(RouteServiceProvider::HOME);
+                }
             }
         }
 
