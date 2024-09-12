@@ -11,8 +11,9 @@ class CustomerAuthController extends Controller
 {
     public function __construct()
     {
-        Auth::setDefaultDriver('customer');
-        config(['auth.defaults.passwords' => 'customers']);
+        // Optional: Ensure the guard is set if not default
+        // Auth::setDefaultDriver('customer');
+        // config(['auth.defaults.passwords' => 'customers']);
     }
 
     public function login()
@@ -36,15 +37,27 @@ class CustomerAuthController extends Controller
         ]);
 
         // Attempt authentication with both email and username
-        if (
-            Auth::guard('customer')->attempt(['email' => $request->identifier, 'password' => $request->password]) ||
-            Auth::guard('customer')->attempt(['username' => $request->identifier, 'password' => $request->password])
-        ) {
+        $credentials = [
+            'password' => $request->password,
+        ];
+
+        // Attempt with email
+        $credentials['email'] = $request->identifier;
+
+        if (Auth::guard('customer')->attempt($credentials)) {
             Session::flash('success', 'Login Successful! Welcome Customer!');
             return redirect()->route('customer.dashboard');
-        } else {
-            Session::flash('error', 'Login Failed! Incorrect credentials.');
-            return redirect()->route('customer.login')->withInput($request->only('identifier'));
         }
+
+        // Attempt with username
+        $credentials['username'] = $request->identifier;
+        if (Auth::guard('customer')->attempt($credentials)) {
+            Session::flash('success', 'Login Successful! Welcome Customer!');
+            return redirect()->route('customer.dashboard');
+        }
+
+        // If authentication fails
+        Session::flash('error', 'Login Failed! Incorrect credentials.');
+        return redirect()->route('customer.login')->withInput($request->only('identifier'));
     }
 }

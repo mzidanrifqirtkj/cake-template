@@ -32,7 +32,7 @@
         </section>
     </main>
 
-    @if(session('success'))
+    {{-- @if(session('success'))
     <script>
         window.onload = function() {
             swal("Success", "Test Success Message", "success");
@@ -46,15 +46,7 @@
             swal("Error", "Test Error Message", "error");
         };
     </script>
-@endif
-<script>if ($request->identifier === 'test@example.com' && $request->password === 'password123') {
-    Session::flash('success', 'Login Successful! Welcome Customer!');
-    return redirect()->route('customer.dashboard');
-} else {
-    Session::flash('error', 'Login Failed! Incorrect credentials.');
-    return redirect()->route('customer.login')->withInput($request->only('identifier'));
-}
-</script>
+@endif --}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 </body>
