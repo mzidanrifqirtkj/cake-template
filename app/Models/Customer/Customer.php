@@ -7,10 +7,10 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class Customer extends Model implements AuthenticatableContract
 {
-    use HasFactory;
     use HasFactory, Notifiable, Authenticatable;
     protected $table = 'customers'; // Specify the table name if different
 
@@ -21,11 +21,20 @@ class Customer extends Model implements AuthenticatableContract
         'email',
         'username',
         'password',
-        'raw_password', // Add this if you need to store the unencrypted password
+        'raw_password', // Optional: store unencrypted password if needed
     ];
 
     protected $hidden = [
         'password',
         'raw_password', // Hide sensitive information
     ];
+
+    // Disable timestamps if not using created_at and updated_at
+    public $timestamps = false;
+
+    // Mutator for encrypting password
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    }
 }

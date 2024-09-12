@@ -70,17 +70,17 @@ Route::get('/merchant/login', [MerchantAuthController::class, 'login'])->name('m
 Route::post('/merchant/login', [MerchantAuthController::class, 'store'])->name('merchant.login.store');
 
 Route::post('/admin/logout', [AdminAuthController::class, 'logoutAdmin'])->name('admin.logout');
-Route::middleware('auth:admin')->group(function () {
-    Route::get('/admin-panel', [AdminPagesController::class, 'index'])->name('admin.dashboard');
-});
-
 Route::post('/customer/logout', [CustomerAuthController::class, 'logoutCustomer'])->name('customer.logout');
+Route::post('/merchant/logout', [MerchantAuthController::class, 'logoutAdmin'])->name('merchant.logout');
+
 Route::middleware('auth:customer')->group(function () {
     Route::get('/checkout', [CustomerPagesController::class, 'index'])->name('customer.checkout');
 });
 
-Route::post('/merchant/logout', [MerchantAuthController::class, 'logoutAdmin'])->name('merchant.logout');
 Route::middleware('auth:merchant')->group(function () {
     Route::get('/merchant-panel', [MerchantPagesController::class, 'index'])->name('merchant.dashboard');
 });
-?>
+
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/admin-panel', [AdminPagesController::class, 'index'])->name('admin.dashboard');
+});
