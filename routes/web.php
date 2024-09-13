@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 // Home
 Route::get('/', function () {
     return view('layouts.customer.home.pages.index');
-});
+})->name('customer.dashboard');
 
 // Authentication
 Route::get('/signin', function () {
@@ -69,9 +69,9 @@ Route::post('/customer/login', [CustomerAuthController::class, 'store'])->name('
 Route::get('/merchant/login', [MerchantAuthController::class, 'login'])->name('merchant.login');
 Route::post('/merchant/login', [MerchantAuthController::class, 'store'])->name('merchant.login.store');
 
-Route::post('/admin/logout', [AdminAuthController::class, 'logoutAdmin'])->name('admin.logout');
-Route::post('/customer/logout', [CustomerAuthController::class, 'logoutCustomer'])->name('customer.logout');
-Route::post('/merchant/logout', [MerchantAuthController::class, 'logoutAdmin'])->name('merchant.logout');
+Route::get('/admin/logout', [AdminAuthController::class, 'logoutAdmin'])->name('admin.logout');
+Route::get('/customer/logout', [CustomerAuthController::class, 'logoutCustomer'])->name('customer.logout');
+Route::get('/merchant/logout', [MerchantAuthController::class, 'logoutAdmin'])->name('merchant.logout');
 
 Route::middleware('auth:customer')->group(function () {
     Route::get('/checkout', [CustomerPagesController::class, 'index'])->name('customer.checkout');
