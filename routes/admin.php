@@ -1,0 +1,15 @@
+<?
+use App\Http\Controllers\AdminPagesController;
+use App\Http\Controllers\Auth\AdminAuthController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
+Route::post('/admin/login', [AdminAuthController::class, 'store'])->name('admin.login.store');
+Route::get('/admin/logout', [AdminAuthController::class, 'logoutAdmin'])->name('admin.logout');
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/admin-panel', [AdminPagesController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin-panel/add-seminar-event', [AdminPagesController::class, 'addSeminar'])->name('admin.add-seminar-event');
+    Route::get('/admin-panel/digimikro-daftar', [AdminPagesController::class, 'digimikroDaftar'])->name('admin.digimikro-daftar');
+    Route::get('/admin-panel/event', [AdminPagesController::class, 'event'])->name('admin.event');
+    Route::get('/admin-panel/seminar-event', [AdminPagesController::class, 'seminarEvent'])->name('admin.seminar-event');
+});

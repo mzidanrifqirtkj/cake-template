@@ -18,7 +18,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{route('admin.dashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -40,7 +40,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="event.html">daftar kegiatan</a>
+                        <a class="collapse-item" href="/admin-panel/add-seminar-event">daftar kegiatan</a>
                     </div>
                 </div>
             </li>
@@ -56,8 +56,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Jadwal Seminar</h6>
-                        <a class="collapse-item" href="event.html">Jadwal Seminar</a>
-                        <a class="collapse-item" href="add-seminar-event.html">Tambah Jadwal Seminar</a>
+                        <a class="collapse-item" href="admin-panel/event">Jadwal Seminar</a>
+                        <a class="collapse-item" href="admin-panel/add-seminar-event">Tambah Jadwal Seminar</a>
                     </div>
                 </div>
             </li>
@@ -71,7 +71,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="digimikro-daftar.html">pendaftaran digimikro</a>
+                        <a class="collapse-item" href="admin-panel/digimikro-daftar">pendaftaran digimikro</a>
                     </div>
                 </div>
             </li>
