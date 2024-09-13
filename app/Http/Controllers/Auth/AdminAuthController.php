@@ -17,7 +17,7 @@ class AdminAuthController extends Controller
 
     public function login()
     {
-        return view('layouts.admin.auth.login.pages.test');
+        return view('layouts.admin.auth.login.pages.signin');
     }
 
     public function logoutAdmin(Request $request)
