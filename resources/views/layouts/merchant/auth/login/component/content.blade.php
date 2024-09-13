@@ -16,7 +16,7 @@
                 <h1>Sign In</h1>
                 <p>Persiapkan diri untuk masa depan yang penuh dengan bintang</p>
             </div>
-            <form action="{{ route('customer.login.store') }}" method="POST">
+            <form action="{{ route('merchant.login.store') }}" method="POST">
                 @csrf
                 <div class="input-group border-primary">
                     <label for="email">Email</label>
