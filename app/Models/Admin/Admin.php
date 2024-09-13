@@ -22,6 +22,7 @@ class Admin extends Model implements AuthenticatableContract
         'username',
         'password',
         'raw_password', // Add this if you need to store the unencrypted password
+        'created_at'
     ];
 
     protected $hidden = [

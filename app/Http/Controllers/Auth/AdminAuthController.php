@@ -37,7 +37,6 @@ class AdminAuthController extends Controller
 
         // Attempt authentication with both email and username
         if (
-            Auth::guard('admin')->attempt(['email' => $request->identifier, 'password' => $request->password]) ||
             Auth::guard('admin')->attempt(['username' => $request->identifier, 'password' => $request->password])
         ) {
             Session::flash('success', 'Login Successful! Welcome Admin!');
