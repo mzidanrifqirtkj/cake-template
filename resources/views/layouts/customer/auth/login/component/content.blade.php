@@ -19,9 +19,9 @@
             <form action="{{ route('customer.login.store') }}" method="POST">
                 @csrf
                 <div class="input-group border-primary">
-                    <label for="email">Email</label>
-                    <input type="email" class="placeholder-primary" id="email" name="identifier"
-                        placeholder="Your email" required>
+                    <label for="text">username</label>
+                    <input type="text" class="placeholder-primary" id="username" name="identifier"
+                        placeholder="Your username" required>
                 </div>
                 <div class="input-group border-primary">
                     <label for="password">Password</label>
