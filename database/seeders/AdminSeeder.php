@@ -18,7 +18,7 @@ class AdminSeeder extends Seeder
         DB::table('admin')->insert([
             [
                 'uuid' => Str::uuid(),
-                'username' => 'johnny',
+                'username' => 'admin',
                 'password' => bcrypt('password123'), // Hashed password
                 'raw_password' => 'password123', // Raw password (optional, not recommended for production)
                 'created_at' => now(), // Current timestamp
