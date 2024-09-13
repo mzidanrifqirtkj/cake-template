@@ -1,11 +1,7 @@
 <?php
-
-use App\Http\Controllers\AdminPagesController;
-use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\Auth\CustomerAuthController;
 use App\Http\Controllers\Auth\MerchantAuthController;
 use App\Http\Controllers\CustomerPagesController;
-use App\Http\Controllers\MerchantPagesController;
 use Illuminate\Support\Facades\Route;
 
 // Memanggil rute untuk merchant

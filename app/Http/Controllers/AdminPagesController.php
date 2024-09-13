@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class AdminPagesController extends Controller
 {
@@ -10,6 +9,22 @@ class AdminPagesController extends Controller
     public function index()
     {
         return view('layouts.admin.panel.pages.dashboard'); // Adjust the view path as needed
+    }
+    public function addSeminar()
+    {
+        return view('layouts.admin.panel.pages.add-seminar-event');
+    }
+    public function digimikroDaftar()
+    {
+        return view('layouts.admin.panel.pages.digimikro-daftar');
+    }
+    public function event()
+    {
+        return view('layouts.admin.panel.pages.event');
+    }
+    public function seminarEvent()
+    {
+        return view('layouts.admin.panel.pages.seminarEvent');
     }
     // Display admin form
 
