@@ -10,11 +10,12 @@ class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
-          // Sample data
-          DB::table('admin')->insert([
+        DB::table('admin')->insert([
             [
                 'uuid' => Str::uuid(),
                 'username' => 'admin',
@@ -22,7 +23,7 @@ class AdminSeeder extends Seeder
                 'raw_password' => 'password123', // Store raw password if needed
                 'created_at' => now()
             ],
-            // Add more sample customers as needed
+            // Add more entries if needed
         ]);
     }
 }
