@@ -8,6 +8,12 @@ use App\Http\Controllers\CustomerPagesController;
 use App\Http\Controllers\MerchantPagesController;
 use Illuminate\Support\Facades\Route;
 
+// Memanggil rute untuk merchant
+require __DIR__ . '/merchant.php';
+
+// Memanggil rute untuk admin
+require __DIR__ . '/admin.php';
+
 // Home
 Route::get('/', function () {
     return view('layouts.customer.home.pages.index');
