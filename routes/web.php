@@ -71,7 +71,7 @@ Route::post('/merchant/login', [MerchantAuthController::class, 'store'])->name('
 
 Route::get('/admin/logout', [AdminAuthController::class, 'logoutAdmin'])->name('admin.logout');
 Route::get('/customer/logout', [CustomerAuthController::class, 'logoutCustomer'])->name('customer.logout');
-Route::get('/merchant/logout', [MerchantAuthController::class, 'logoutAdmin'])->name('merchant.logout');
+Route::get('/merchant/logout', [MerchantAuthController::class, 'logoutMerchant'])->name('merchant.logout');
 
 Route::middleware('auth:customer')->group(function () {
     Route::get('/checkout', [CustomerPagesController::class, 'index'])->name('customer.checkout');

@@ -10,6 +10,12 @@
     </div><!-- End Page Title -->
 
     <div class="row justify-content-end m-2 px-5 ">
+        <a href="{{ route('merchant.logout') }}" style="width: 150px; background-color: #82c408ff; color: white;" class="btn">
+            Logout
+        </a>
+    </div>
+
+    <div class="row justify-content-end m-2 px-5 ">
         <a href="/add-catalog" style="width: 150px; background-color: #82c408ff; color: white;" class="btn">
             + Add New
         </a>
