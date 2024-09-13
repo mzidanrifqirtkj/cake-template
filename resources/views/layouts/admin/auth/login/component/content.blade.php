@@ -19,8 +19,8 @@
             <form action="{{ route('admin.login.store') }}" method="POST">
                 @csrf
                 <div class="input-group border-primary">
-                    <label for="text">username</label>
-                    <input type="text" class="placeholder-primary" id="username" name="identifier" placeholder="Your username" required>
+                    <label for="text">Username</label>
+                    <input type="text" class="placeholder-primary" id="username" name="identifier" placeholder="Your Username" required>
                 </div>
                 <div class="input-group border-primary">
                     <label for="password">Password</label>

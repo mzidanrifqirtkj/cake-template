@@ -18,7 +18,6 @@ class Admin extends Model implements AuthenticatableContract
     protected $fillable = [
         'uuid',        // If you're using UUIDs
         'name',
-        'phone',
         'username',
         'password',
         'raw_password', // Add this if you need to store the unencrypted password

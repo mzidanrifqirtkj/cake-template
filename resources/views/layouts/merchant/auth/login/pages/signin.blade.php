@@ -14,5 +14,5 @@
 <link href="{{ asset('css/components.style.css') }}" rel="stylesheet">
   <title>Sign In - Pertemuan 2</title>
 </head>
-@include('layouts.customer.auth.login.component.content')
+@include('layouts.merchant.auth.login.component.content')
 </html>
