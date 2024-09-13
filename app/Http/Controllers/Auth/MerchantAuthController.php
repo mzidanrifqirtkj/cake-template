@@ -17,7 +17,7 @@ class MerchantAuthController extends Controller
 
     public function login()
     {
-        return view('layouts.merchant.auth.login.pages.login');
+        return view('layouts.merchant.auth.login.pages.signin');
     }
 
     public function logoutMerchant(Request $request)

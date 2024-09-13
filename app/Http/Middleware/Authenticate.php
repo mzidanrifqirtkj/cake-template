@@ -16,9 +16,9 @@ class Authenticate extends Middleware
         if ($request->expectsJson()) {
             return null;
         }
-    
+
         $guards = ['admin', 'merchant', 'customer']; // Define your guards here
-    
+
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 switch ($guard) {
@@ -31,7 +31,7 @@ class Authenticate extends Middleware
                 }
             }
         }
-    
+
         // Redirect to the appropriate login page based on the guard
         if ($request->is('admin/*')) {
             return route('admin.login'); // Redirect to the admin login page
@@ -40,7 +40,7 @@ class Authenticate extends Middleware
         } elseif ($request->is('customer/*')) {
             return route('customer.login'); // Redirect to the customer login page
         }
-    
+
         return route('customer.login'); // Default redirect if no specific guard is matched
     }
 }

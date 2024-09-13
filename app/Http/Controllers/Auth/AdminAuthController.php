@@ -17,7 +17,7 @@ class AdminAuthController extends Controller
 
     public function login()
     {
-        return view('layouts.admin.auth.login.pages.test');
+        return view('layouts.admin.auth.login.pages.signin');
     }
 
     public function logoutAdmin(Request $request)
@@ -37,7 +37,6 @@ class AdminAuthController extends Controller
 
         // Attempt authentication with both email and username
         if (
-            Auth::guard('admin')->attempt(['email' => $request->identifier, 'password' => $request->password]) ||
             Auth::guard('admin')->attempt(['username' => $request->identifier, 'password' => $request->password])
         ) {
             Session::flash('success', 'Login Successful! Welcome Admin!');

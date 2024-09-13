@@ -20,11 +20,13 @@
                 @csrf
                 <div class="input-group border-primary">
                     <label for="email">Email</label>
-                    <input type="email" class="placeholder-primary" id="email" name="identifier" placeholder="Your email" required>
+                    <input type="email" class="placeholder-primary" id="email" name="identifier"
+                        placeholder="Your email" required>
                 </div>
                 <div class="input-group border-primary">
                     <label for="password">Password</label>
-                    <input type="password" class="placeholder-primary" id="password" name="password" placeholder="Your password" required>
+                    <input type="password" class="placeholder-primary" id="password" name="password"
+                        placeholder="Your password" required>
                 </div>
                 <button type="submit" class="btn-secondary btn-submit">Sign In</button>
                 <p class="text-center">Don't have an account? <a href="signup" class="link">Sign Up</a></p>
@@ -32,7 +34,7 @@
         </section>
     </main>
 
-        @if(session('success'))
+    @if (session('success'))
         <script>
             window.onload = function() {
                 swal("Success", "Test Success Message", "success");
@@ -40,7 +42,7 @@
         </script>
     @endif
 
-    @if(session('error'))
+    @if (session('error'))
         <script>
             window.onload = function() {
                 swal("Error", "Test Error Message", "error");
