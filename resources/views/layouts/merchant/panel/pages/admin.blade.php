@@ -1,5 +1,5 @@
-@extends('layouts.common.master_admin')
-@section('title', 'Merchant')
+@extends('layouts.common.merchantPanelHeader')
+@section('title', 'MerchantPanel')
 @section('content')
-@include('layouts.merchant.panel.component.HeroAdmin')
+@include('layouts.merchant.panel.component.dashboardPage')
 @endsection
