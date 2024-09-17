@@ -20,13 +20,20 @@ class AdminPagesController extends Controller
     {
         return view('layouts.admin.panel.pages.digimikro-daftar');
     }
+
     public function event()
     {
         return view('layouts.admin.panel.pages.event');
     }
+
     public function seminarEvent()
     {
         return view('layouts.admin.panel.pages.seminarEvent');
+    }
+
+    public function addMerchant()
+    {
+        return view('layouts.admin.panel.pages.daftar-merchant');
     }
     // Display admin form
 

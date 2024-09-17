@@ -28,22 +28,27 @@ class AdminAuthController extends Controller
         return redirect('/');
     }
 
-    public function store(Request $request)
+    public function showMerchantRegisterForm()
+    {
+        return view('layouts.admin.panel.pages.daftar-merchant');
+    }
+
+    public function addMerchant(Request $request)
     {
         $request->validate([
-            'identifier' => 'required|string',
-            'password' => 'required|min:5|max:30',
+            'username' => 'required|string|unique:customers|max:255',
+            'email' => 'required|string|email|unique:customers|max:255',
+            'password' => 'required|string|min:5|confirmed',
         ]);
+        // Create a new customer account
+        $merchant = new \App\Models\merchant\Merchant();
+        $merchant->username = $request->username;
+        $merchant->email = $request->email;
+        $merchant->password = $request->password; // Hash the password
+        $merchant->save(); // UUID is generated here automatically
 
-        // Attempt authentication with both email and username
-        if (
-            Auth::guard('admin')->attempt(['username' => $request->identifier, 'password' => $request->password])
-        ) {
-            Session::flash('success', 'Login Successful! Welcome Admin!');
-            return redirect()->route('admin.dashboard');
-        } else {
-            Session::flash('error', 'Login Failed! Incorrect credentials.');
-            return redirect()->route('admin.login')->withInput($request->only('identifier'));
-        }
+        Session::flash('success', 'Registration Successful! You can now log in.');
+        return redirect()->route('admin.add-merchant');
     }
+
 }
