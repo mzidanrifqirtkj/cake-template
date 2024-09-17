@@ -10,10 +10,12 @@ class AdminPagesController extends Controller
     {
         return view('layouts.admin.panel.pages.dashboard'); // Adjust the view path as needed
     }
+
     public function addSeminar()
     {
         return view('layouts.admin.panel.pages.add-seminar-event');
     }
+    
     public function digimikroDaftar()
     {
         return view('layouts.admin.panel.pages.digimikro-daftar');

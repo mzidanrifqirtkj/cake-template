@@ -9,6 +9,7 @@ Route::post('/merchant/login', [MerchantAuthController::class, 'store'])->name('
 Route::get('/merchant/logout', [MerchantAuthController::class, 'logoutMerchant'])->name('merchant.logout');
 
 Route::middleware('auth:merchant')->group(function () {
-    Route::get('/merchant-panel', [MerchantPagesController::class, 'index'])->name('merchant.dashboard');
+    Route::get('/merchant/merchant-panel', [MerchantPagesController::class, 'index'])->name('merchant.dashboard');
 });
+
 ?>
