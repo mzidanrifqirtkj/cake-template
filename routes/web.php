@@ -23,10 +23,10 @@ Route::get('/signin', function () {
     return view('layouts.customer.auth.login.pages.signin');
 })->name('signin');
 
-// Merchant
-Route::get('/merchant', function () {
-    return view('layouts.merchant.panel.pages.admin');
-});
+// // Merchant
+// Route::get('/merchant', function () {
+//     return view('layouts.merchant.panel.pages.admin');
+// });
 
 // Form
 Route::get('/add-catalog', function () {

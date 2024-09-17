@@ -12,4 +12,5 @@ Route::get('/merchant/logout', [MerchantAuthController::class, 'logoutMerchant']
 Route::middleware('auth:merchant')->group(function () {
     Route::get('/merchant/merchant-panel', [MerchantPagesController::class, 'index'])->name('merchant.dashboard');
 });
+
 ?>
