@@ -15,15 +15,15 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
      <!-- Libraries Stylesheet -->
-     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+     <link href={{asset('lib/lightbox/css/lightbox.min.css')}} rel="stylesheet">
+     <link href={{asset('lib/owlcarousel/assets/owl.carousel.min.css')}} rel="stylesheet">
 
 
      <!-- Customized Bootstrap Stylesheet -->
-     <link href="css/bootstrap.min.css" rel="stylesheet">
+     <link href={{asset('css/bootstrap.min.css')}} rel="stylesheet">
 
      <!-- Template Stylesheet -->
-     <link href="css/style.css" rel="stylesheet">
+     <link href={{asset('css/style.css')}} rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link
@@ -31,17 +31,17 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../static/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="../static/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="../static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../static/assets/vendor/simple-datatables/style.css" rel="stylesheet">
-    <link href="../static/assets/img/logo.png" rel="icon" type="image/x-icon" />
+    <link href={{asset('../static/assets/vendor/bootstrap/css/bootstrap.min.css')}} rel="stylesheet">
+    <link href={{asset('../static/assets/vendor/bootstrap-icons/bootstrap-icons.css')}} rel="stylesheet">
+    <link href={{asset('../static/assets/vendor/boxicons/css/boxicons.min.css')}} rel="stylesheet">
+    <link href={{asset('../static/assets/vendor/quill/quill.snow.css')}} rel="stylesheet">
+    <link href={{asset('../static/assets/vendor/quill/quill.bubble.css')}} rel="stylesheet">
+    <link href={{asset('../static/assets/vendor/remixicon/remixicon.css')}} rel="stylesheet">
+    <link href={{asset('../static/assets/vendor/simple-datatables/style.css')}} rel="stylesheet">
+    <link href={{asset('../static/assets/img/logo.png')}} rel="icon" type="image/x-icon" />
 
     <!-- Template Main CSS File -->
-    <link href="../static/assets/css/style.css" rel="stylesheet">
+    <link href={{asset('../static/assets/css/style.css')}} rel="stylesheet">
 </head>
 
 <body>
