@@ -47,4 +47,32 @@ class CustomerAuthController extends Controller
             return redirect()->route('customer.login')->withInput($request->only('identifier'));
         }
     }
+
+    public function showRegisterForm()
+    {
+        return view('layouts.customer.auth.register.pages.signup');
+    }
+
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:15', // Example validation for phone
+            'username' => 'required|string|unique:customers|max:255',
+            'email' => 'required|string|email|unique:customers|max:255',
+            'password' => 'required|string|min:5|confirmed',
+        ]);
+
+        // Create a new customer account
+        $customer = new \App\Models\Customer\Customer();
+        $customer->name = $request->name;
+        $customer->phone = $request->phone;
+        $customer->username = $request->username;
+        $customer->email = $request->email;
+        $customer->password = $request->password; // This will call the mutator
+        $customer->save(); // UUID is generated here automatically
+
+        Session::flash('success', 'Registration Successful! You can now log in.');
+        return redirect()->route('customer.login');
+    }
 }
