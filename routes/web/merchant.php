@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\MerchantPagesController;
 use App\Http\Controllers\Auth\MerchantAuthController;
 use Illuminate\Support\Facades\Route;

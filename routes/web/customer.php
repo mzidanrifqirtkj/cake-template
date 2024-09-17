@@ -9,6 +9,6 @@ Route::post('/customer/login', [CustomerAuthController::class, 'store'])->name('
 Route::get('/customer/logout', [CustomerAuthController::class, 'logoutCustomer'])->name('customer.logout');
 
 Route::middleware('auth:customer')->group(function () {
-    Route::get('/checkout', [CustomerPagesController::class, 'index'])->name('customer.checkout');
+    Route::get('admin/checkout', [CustomerPagesController::class, 'index'])->name('customer.checkout');
 });
 ?>

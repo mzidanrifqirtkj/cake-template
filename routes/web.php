@@ -5,13 +5,13 @@ use App\Http\Controllers\CustomerPagesController;
 use Illuminate\Support\Facades\Route;
 
 // Memanggil rute untuk merchant
-require __DIR__ . '/merchant.php';
+require __DIR__ . '/web/merchant.php';
 
 // Memanggil rute untuk admin
-require __DIR__ . '/admin.php';
+require __DIR__ . '/web/admin.php';
 
 // Memanggil rute untuk customer
-require __DIR__ . '/customer.php';
+require __DIR__ . '/web/customer.php';
 
 // Home
 Route::get('/', function () {
