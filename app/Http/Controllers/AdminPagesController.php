@@ -31,6 +31,11 @@ class AdminPagesController extends Controller
         return view('layouts.admin.panel.seminar-event.pages.seminar-event');
     }
 
+    public function checkout()
+    {
+        return view('layouts.customer.checkout.pages.chackout');
+    }
+
     // public function addMerchant()
     // {
     //     return view('layouts.admin.panel.daftar-merchant.pages.daftar-merchant');

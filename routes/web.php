@@ -1,7 +1,10 @@
 <?php
+
+use App\Http\Controllers\AdminPagesController;
 use App\Http\Controllers\Auth\CustomerAuthController;
 use App\Http\Controllers\Auth\MerchantAuthController;
 use App\Http\Controllers\CustomerPagesController;
+use App\Http\Controllers\MerchantPagesController;
 use Illuminate\Support\Facades\Route;
 
 // Memanggil rute untuk merchant
@@ -65,5 +68,12 @@ Route::get('/signup', function () {
     return view('layouts.customer.auth.register.pages.signup');
 });
 
+// routes/web.php
+
+Route::middleware('lowlevel.access')->group(function () {
+    Route::get('/customer/checkout', [CustomerPagesController::class, 'checkout'])->name('customer.checkout');
+    Route::get('/admin/checkout', [AdminPagesController::class, 'checkout'])->name('admin.checkout');
+    Route::get('/merchant/checkout', [MerchantPagesController::class, 'checkout'])->name('merchant.checkout');
+});
 
 ?>

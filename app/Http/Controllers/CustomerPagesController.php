@@ -11,6 +11,11 @@ class CustomerPagesController extends Controller
     {
         return view('layouts.customer.checkout.pages.chackout'); // Adjust the view path as needed
     }
+
+    public function checkout()
+    {
+        return view('layouts.customer.checkout.pages.chackout');
+    }
     // Display admin form
 
     // add other view here
