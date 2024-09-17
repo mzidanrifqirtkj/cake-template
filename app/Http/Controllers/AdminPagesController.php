@@ -13,22 +13,22 @@ class AdminPagesController extends Controller
 
     public function addSeminar()
     {
-        return view('layouts.admin.panel.pages.add-seminar-event');
+        return view('layouts.admin.panel.add-seminar.pages.add-seminar-event');
     }
-    
+
     public function digimikroDaftar()
     {
-        return view('layouts.admin.panel.pages.digimikro-daftar');
+        return view('layouts.admin.panel.digimikro-daftar.pages.digimikro-daftar');
     }
 
     public function event()
     {
-        return view('layouts.admin.panel.pages.event');
+        return view('layouts.admin.panel.event.pages.event');
     }
 
     public function seminarEvent()
     {
-        return view('layouts.admin.panel.pages.seminarEvent');
+        return view('layouts.admin.panel.seminar-event.pages.seminar-event');
     }
 
     public function addMerchant()

@@ -44,7 +44,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/admin-panel/add-seminar-event">daftar kegiatan</a>
+                        <a class="collapse-item" href={{route('admin.event')}}>daftar kegiatan</a>
                     </div>
                 </div>
             </li>
@@ -60,8 +60,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Jadwal Seminar</h6>
-                        <a class="collapse-item" href="admin-panel/event">Jadwal Seminar</a>
-                        <a class="collapse-item" href="admin-panel/add-seminar-event">Tambah Jadwal Seminar</a>
+                        <a class="collapse-item" href={{route("admin.seminar-event")}}>Jadwal Seminar</a>
+                        <a class="collapse-item" href={{route("admin.add-seminar-event")}}>Tambah Jadwal Seminar</a>
                     </div>
                 </div>
             </li>
@@ -75,7 +75,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="admin-panel/digimikro-daftar">pendaftaran digimikro</a>
+                        <a class="collapse-item" href={{route("admin.digimikro-daftar")}}>pendaftaran digimikro</a>
                     </div>
                 </div>
             </li>
