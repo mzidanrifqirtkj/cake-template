@@ -30,7 +30,7 @@ class AdminAuthController extends Controller
 
     public function showMerchantRegisterForm()
     {
-        return view('layouts.admin.panel.pages.daftar-merchant');
+        return view('layouts.admin.panel.daftar-merchant.pages.daftar-merchant');
     }
 
     public function addMerchant(Request $request)

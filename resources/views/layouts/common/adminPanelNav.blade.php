@@ -81,7 +81,7 @@
             </li>
                <!-- Nav Item - Tables -->
                <li class="nav-item">
-                <a class="nav-link" href="signup">
+                <a class="nav-link" href={{ route("admin.add-merchant") }}>
                     <i class="fas fa-sign-in-alt"></i>
                     <span>Daftar merchant</span></a>
             </li>
