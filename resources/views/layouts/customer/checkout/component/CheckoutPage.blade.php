@@ -1,96 +1,202 @@
-<body>
-    <main>
-        <section id="auth-hero">
-            <img src="{{ asset('img/sign-up-image.png') }}" alt="Image Sign Up" class="background">
-            <div class="content">
-                <h2 class="title">Selangkah Lebih Dekat Dengan Impianmu</h2>
-                <p class="description">Sebuah layanan E-Learning gratis yang siap membantumu menjadi seorang ahli</p>
-            </div>
-        </section>
-        <section id="auth-form">
-            <a class="btn-back" href="/">
-                <i class="fa-solid fa-arrow-left"></i>
-                <p>Homepage</p>
-            </a>
-            <div class="header">
-                <h1>Sign In</h1>
-                <p>Persiapkan diri untuk masa depan yang penuh dengan bintang</p>
-            </div>
-            <form action="{{ route('customer.login.store') }}" method="POST">
-                @csrf
-                <div class="input-group border-primary">
-                    <label for="identifier">Username or Email</label>
-                    <input type="text" class="placeholder-primary" id="username" name="identifier"
-                        placeholder="Your Username or Email" required>
-                </div>
-
-                <!-- Input Password dengan Icon Mata -->
-                <div class="input-group border-primary">
-                    <label for="password">Password</label>
-                    <div class="input-password-wrapper">
-                        <input type="password" class="placeholder-primary" id="password" name="password"
-                            placeholder="Your password" required>
-                        <span class="toggle-password" id="eyeIcon">
-                            👁<!-- Ikon mata untuk toggle password -->
-                        </span>
+<!-- Checkout Page Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5 mt-5">
+        <h1 class="mb-4">Billing details</h1>
+        <form action="#">
+            <div class="row g-5">
+                <div class="col-md-12 col-lg-6 col-xl-7">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="form-item w-100">
+                                <label class="form-label my-3">First Name<sup>*</sup></label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            <div class="form-item w-100">
+                                <label class="form-label my-3">Last Name<sup>*</sup></label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label class="form-label my-3">Company Name<sup>*</sup></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-item">
+                        <label class="form-label my-3">Address <sup>*</sup></label>
+                        <input type="text" class="form-control" placeholder="House Number Street Name">
+                    </div>
+                    <div class="form-item">
+                        <label class="form-label my-3">Town/City<sup>*</sup></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-item">
+                        <label class="form-label my-3">Country<sup>*</sup></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-item">
+                        <label class="form-label my-3">Postcode/Zip<sup>*</sup></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-item">
+                        <label class="form-label my-3">Mobile<sup>*</sup></label>
+                        <input type="tel" class="form-control">
+                    </div>
+                    <div class="form-item">
+                        <label class="form-label my-3">Email Address<sup>*</sup></label>
+                        <input type="email" class="form-control">
+                    </div>
+                    <div class="form-check my-3">
+                        <input type="checkbox" class="form-check-input" id="Account-1" name="Accounts" value="Accounts">
+                        <label class="form-check-label" for="Account-1">Create an account?</label>
+                    </div>
+                    <hr>
+                    <div class="form-check my-3">
+                        <input class="form-check-input" type="checkbox" id="Address-1" name="Address" value="Address">
+                        <label class="form-check-label" for="Address-1">Ship to a different address?</label>
+                    </div>
+                    <div class="form-item">
+                        <textarea name="text" class="form-control" spellcheck="false" cols="30" rows="11" placeholder="Oreder Notes (Optional)"></textarea>
                     </div>
                 </div>
-
-                <button type="submit" class="btn-secondary btn-submit">Sign In</button>
-                <p class="text-center">Don't have an account? <a href="signup" class="link">Sign Up</a></p>
-            </form>
-        </section>
-    </main>
-
-    @if (session('success'))
-        <script>
-            window.onload = function() {
-                swal("Success", "Test Success Message", "success");
-            };
-        </script>
-    @endif
-
-    @if (session('error'))
-        <script>
-            window.onload = function() {
-                swal("Error", "Test Error Message", "error");
-            };
-        </script>
-    @endif
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
-    <!-- Script untuk Toggle Show Password -->
-    <script>
-        const eyeIcon = document.getElementById('eyeIcon');
-        const passwordInput = document.getElementById('password');
-
-        eyeIcon.addEventListener('click', function () {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            this.textContent = type === 'text' ? '🙈' : '👁';
-        });
-    </script>
-
-    <!-- CSS untuk ikon dan tata letak password -->
-    <style>
-        .input-password-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .input-password-wrapper input {
-            width: 100%;
-            padding-right: 40px; /* Memberi ruang untuk ikon di sebelah kanan */
-        }
-
-        .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-    </style>
-</body>
+                <div class="col-md-12 col-lg-6 col-xl-5">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Products</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center mt-2">
+                                            <img src="img/vegetable-item-2.jpg" class="img-fluid rounded-circle" style="width: 90px; height: 90px;" alt="">
+                                        </div>
+                                    </th>
+                                    <td class="py-5">Awesome Brocoli</td>
+                                    <td class="py-5">$69.00</td>
+                                    <td class="py-5">2</td>
+                                    <td class="py-5">$138.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center mt-2">
+                                            <img src="img/vegetable-item-5.jpg" class="img-fluid rounded-circle" style="width: 90px; height: 90px;" alt="">
+                                        </div>
+                                    </th>
+                                    <td class="py-5">Potatoes</td>
+                                    <td class="py-5">$69.00</td>
+                                    <td class="py-5">2</td>
+                                    <td class="py-5">$138.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center mt-2">
+                                            <img src="img/vegetable-item-3.png" class="img-fluid rounded-circle" style="width: 90px; height: 90px;" alt="">
+                                        </div>
+                                    </th>
+                                    <td class="py-5">Big Banana</td>
+                                    <td class="py-5">$69.00</td>
+                                    <td class="py-5">2</td>
+                                    <td class="py-5">$138.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                    </th>
+                                    <td class="py-5"></td>
+                                    <td class="py-5"></td>
+                                    <td class="py-5">
+                                        <p class="mb-0 text-dark py-3">Subtotal</p>
+                                    </td>
+                                    <td class="py-5">
+                                        <div class="py-3 border-bottom border-top">
+                                            <p class="mb-0 text-dark">$414.00</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                    </th>
+                                    <td class="py-5">
+                                        <p class="mb-0 text-dark py-4">Shipping</p>
+                                    </td>
+                                    <td colspan="3" class="py-5">
+                                        <div class="form-check text-start">
+                                            <input type="checkbox" class="form-check-input bg-primary border-0" id="Shipping-1" name="Shipping-1" value="Shipping">
+                                            <label class="form-check-label" for="Shipping-1">Free Shipping</label>
+                                        </div>
+                                        <div class="form-check text-start">
+                                            <input type="checkbox" class="form-check-input bg-primary border-0" id="Shipping-2" name="Shipping-1" value="Shipping">
+                                            <label class="form-check-label" for="Shipping-2">Flat rate: $15.00</label>
+                                        </div>
+                                        <div class="form-check text-start">
+                                            <input type="checkbox" class="form-check-input bg-primary border-0" id="Shipping-3" name="Shipping-1" value="Shipping">
+                                            <label class="form-check-label" for="Shipping-3">Local Pickup: $8.00</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                    </th>
+                                    <td class="py-5">
+                                        <p class="mb-0 text-dark text-uppercase py-3">TOTAL</p>
+                                    </td>
+                                    <td class="py-5"></td>
+                                    <td class="py-5"></td>
+                                    <td class="py-5">
+                                        <div class="py-3 border-bottom border-top">
+                                            <p class="mb-0 text-dark">$135.00</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
+                        <div class="col-12">
+                            <div class="form-check text-start my-3">
+                                <input type="checkbox" class="form-check-input bg-primary border-0" id="Transfer-1" name="Transfer" value="Transfer">
+                                <label class="form-check-label" for="Transfer-1">Direct Bank Transfer</label>
+                            </div>
+                            <p class="text-start text-dark">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
+                        </div>
+                    </div>
+                    <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
+                        <div class="col-12">
+                            <div class="form-check text-start my-3">
+                                <input type="checkbox" class="form-check-input bg-primary border-0" id="Payments-1" name="Payments" value="Payments">
+                                <label class="form-check-label" for="Payments-1">Check Payments</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
+                        <div class="col-12">
+                            <div class="form-check text-start my-3">
+                                <input type="checkbox" class="form-check-input bg-primary border-0" id="Delivery-1" name="Delivery" value="Delivery">
+                                <label class="form-check-label" for="Delivery-1">Cash On Delivery</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
+                        <div class="col-12">
+                            <div class="form-check text-start my-3">
+                                <input type="checkbox" class="form-check-input bg-primary border-0" id="Paypal-1" name="Paypal" value="Paypal">
+                                <label class="form-check-label" for="Paypal-1">Paypal</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4 text-center align-items-center justify-content-center pt-4">
+                        <button type="button" class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Checkout Page End -->

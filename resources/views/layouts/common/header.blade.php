@@ -42,8 +42,8 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0 bg-secondary rounded-0">
                             <a href="/cart" class="dropdown-item {{ request()->is('cart') ? 'active' : '' }}">Cart</a>
-                            <a href="/checkout"
-                                class="dropdown-item {{ request()->is('checkout') ? 'active' : '' }}">Checkout</a>
+                            <a href="customer/checkout"
+                                class="dropdown-item {{ request()->is('customer/checkout') ? 'active' : '' }}">Checkout</a>
                             <a href="/testimonial"
                                 class="dropdown-item {{ request()->is('testimonial') ? 'active' : '' }}">Testimonial</a>
                             <a href="/404" class="dropdown-item {{ request()->is('404') ? 'active' : '' }}">404

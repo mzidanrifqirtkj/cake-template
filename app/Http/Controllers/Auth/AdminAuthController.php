@@ -28,6 +28,25 @@ class AdminAuthController extends Controller
         return redirect('/');
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'identifier' => 'required|string',
+            'password' => 'required|min:5|max:30',
+        ]);
+
+        // Attempt authentication with both email and username
+        if (
+            Auth::guard('admin')->attempt(['username' => $request->identifier, 'password' => $request->password])
+        ) {
+            Session::flash('success', 'Login Successful! Welcome Admin!');
+            return redirect()->route('admin.dashboard');
+        } else {
+            Session::flash('error', 'Login Failed! Incorrect credentials.');
+            return redirect()->route('admin.login')->withInput($request->only('identifier'));
+        }
+    }
+
     public function showMerchantRegisterForm()
     {
         return view('layouts.admin.panel.daftar-merchant.pages.daftar-merchant');
