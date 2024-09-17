@@ -5,15 +5,12 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
+            <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">
-                    {{ request()->is('merchant/merchant-panel*') ? 'Merchant Panel ' : 'Admin Panel'  }}
-                    <br><sub>digimikro</sub>
-                </div>
-
+                <div class="sidebar-brand-text mx-3">Merchant Panel <sup>Digi mikro</sup></div>
             </a>
 
             <!-- Divider -->
@@ -30,9 +27,8 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-
             <div class="sidebar-heading">
-                {{ request()->is('/merchant/merchant-panel') ? 'kegiatan' : 'Menu diklat usaha' }}
+                kegiatan
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -78,12 +74,6 @@
                         <a class="collapse-item" href="admin-panel/digimikro-daftar">pendaftaran digimikro</a>
                     </div>
                 </div>
-            </li>
-               <!-- Nav Item - Tables -->
-               <li class="nav-item">
-                <a class="nav-link" href="signup">
-                    <i class="fas fa-sign-in-alt"></i>
-                    <span>Daftar merchant</span></a>
             </li>
         </ul>
         <!-- End of Sidebar -->
