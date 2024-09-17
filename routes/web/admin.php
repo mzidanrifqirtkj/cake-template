@@ -9,7 +9,7 @@ Route::post('/admin/login', [AdminAuthController::class, 'store'])->name('admin.
 Route::get('/admin/logout', [AdminAuthController::class, 'logoutAdmin'])->name('admin.logout');
 
 Route::middleware('auth:admin')->group(function () {
-    Route::get('/admin-panel', [AdminPagesController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/admin-panel', [AdminPagesController::class, 'index'])->name('admin.dashboard');
 });
 
 ?>
