@@ -19,7 +19,7 @@ class CustomerPagesController extends Controller
 
     public function profile()
     {
-        return view('layout.customer.profile.pages.profile');
+        return view('layouts.customer.profile.pages.profile');
     }
     // Display admin form
 

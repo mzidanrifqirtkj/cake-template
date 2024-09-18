@@ -12,6 +12,6 @@ Route::post('/customer/register', [CustomerAuthController::class, 'register']);
 
 Route::middleware('auth:customer')->group(function () {
     Route::get('/customer/profile', [CustomerPagesController::class, 'profile'])->name('customer.profile');
-
 });
+
 ?>
