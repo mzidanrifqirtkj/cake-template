@@ -63,9 +63,23 @@
                             class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
                             style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
                     </a>
-                    <a href="/signin" class="my-auto">
+                    <a href="{{ auth()->check() ? '#' : route('signin') }}" class="my-auto {{ auth()->check() ? 'profile' : 'login' }}" id="userMenuButton">
                         <i class="fas fa-user fa-2x"></i>
                     </a>
+
+                    <!-- Menu Popup -->
+                    <div id="userMenuPopup" class="popup-menu" style="display: none;">
+                        <ul>
+                            <li><a href="{{ route('customer/profile') }}">Lihat Profil</a></li>
+                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Form Logout -->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+
                 </div>
             </div>
         </nav>

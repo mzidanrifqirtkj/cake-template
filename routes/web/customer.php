@@ -11,6 +11,7 @@ Route::get('/customer/register', [CustomerAuthController::class, 'showRegisterFo
 Route::post('/customer/register', [CustomerAuthController::class, 'register']);
 
 Route::middleware('auth:customer')->group(function () {
-    Route::get('/customer/checkout', [CustomerPagesController::class, 'index'])->name('customer.checkout');
+    Route::get('/customer/profile', [CustomerPagesController::class, 'profile'])->name('customer.profile');
+
 });
 ?>
